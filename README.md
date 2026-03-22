@@ -42,6 +42,19 @@ flowchart LR
 
 ---
 
+Additional architectural variants can also be considered, for example:
+
+```mermaid
+flowchart LR
+    E1[EdgeTrack 1] -->|Ethernet Stream| C1[CoreStereo 1<br/>Shared Host]
+    E2[EdgeTrack 2] -->|Ethernet Stream| C1
+
+    C1 --> F[CoreFusion<br/>Workstation]
+```
+However, this is not the preferred setup.
+The recommended architecture is the one shown above, where each stereo pair is handled by its own dedicated CoreStereo host.
+
+
 ## Processing Pipeline
 
 ```text
