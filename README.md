@@ -32,8 +32,8 @@ CoreStereo operates between **EdgeTrack (capture)** and **CoreFusion (multi-rig 
 
 ```mermaid
 flowchart LR
-    E[EdgeTrack\nCapture] -->|RAW Stereo Stream| S[CoreStereo\nDisparity + 3D]
-    S --> F[CoreFusion\nMulti-Rig Fusion]
+    E[EdgeTrack\nCapture] -->|Ethernet RAW Stream| S[CoreStereo\nDisparity + 3D]
+    S --> F[CoreFusion<br/>Workstation]
 ```
 
 * **EdgeTrack** → provides synchronized RAW stereo data
@@ -46,8 +46,8 @@ Additional architectural variants can also be considered, for example:
 
 ```mermaid
 flowchart LR
-    E1[EdgeTrack 1] -->|Ethernet Stream| C1[CoreStereo 1<br/>Shared Host]
-    E2[EdgeTrack 2] -->|Ethernet Stream| C1
+    E1[EdgeTrack 1\nCapture] -->|Ethernet RAW Stream| C1[CoreStereo<br/>Shared Host]
+    E2[EdgeTrack 2\nCapture] -->|Ethernet RAW Stream| C1
 
     C1 --> F[CoreFusion<br/>Workstation]
 ```
