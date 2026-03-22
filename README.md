@@ -156,7 +156,11 @@ AI-based methods (e.g., neural stereo) are optional and can be integrated as com
 
 ---
 
-## Advantages
+## Note
+
+For development, a host-side **CoreStereo** setup is often a more practical and straightforward starting point than a more complex Jetson-based implementation. A **Ryzen 7 with 32 GB RAM** can already serve as a reasonable minimum for a single stereo rig, making early development simpler, more accessible, and easier to debug.
+
+**Key advantage:** CoreStereo targets **full dense host-side reconstruction at 2× 1280×800 @ 120 FPS RAW10**, while maintaining **high accuracy, strong density, and low latency**. This level of performance is enabled by high-end desktop CPUs (e.g., Ryzen 9 7950-class systems) with optimized stereo pipelines, exceeding the capabilities of typical edge-class **ARM** or **VPU-based** systems.
 
 * Full control over stereo pipeline
 * High precision and reproducibility
@@ -164,31 +168,12 @@ AI-based methods (e.g., neural stereo) are optional and can be integrated as com
 * Works with low-cost capture hardware
 * Not tied to vendor ecosystems
 
----
-
-## Trade-offs
+**Trade-off:** Increased hardware overhead compared with edge-side processing. 
 
 * Higher hardware requirements compared to embedded systems
 * CPU-intensive processing
 * Requires careful optimization for high FPS
 
----
-
-## License
-
-Apache-2.0 (planned)
-
----
-
-## Status
-
-🟡 Planned / In development
-
----
-
-## Related Modules
-
-* **EdgeTrack** – Capture, synchronization, and streaming
-* **CoreFusion** – Multi-rig fusion and scene reconstruction
+**Tip:** **FPGA** remains a possible future alternative for lower-latency and more deterministic acceleration.
 
 ---
