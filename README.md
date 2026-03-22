@@ -49,7 +49,11 @@ flowchart LR
     E1[EdgeTrack 1\nCapture] -->|Ethernet RAW Stream| C1[CoreStereo<br/>Shared Host]
     E2[EdgeTrack 2\nCapture] -->|Ethernet RAW Stream| C1
 
+    E3[EdgeTrack 3\nCapture] -->|Ethernet RAW Stream| C2[CoreStereo<br/>Shared Host]
+    E4[EdgeTrack 4\nCapture] -->|Ethernet RAW Stream| C2   
+
     C1 --> F[CoreFusion<br/>Workstation]
+    C2 --> F
 ```
 However, this is not the preferred setup.
 The recommended architecture is the one shown above, where each stereo pair is handled by its own dedicated CoreStereo host.
