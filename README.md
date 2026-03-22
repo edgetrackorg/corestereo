@@ -1,7 +1,3 @@
-Klar 👍 — hier ist ein **sauber strukturierter, GitHub-tauglicher `README.md` für CoreStereo`**, passend zu deinem Stil (technisch, klar, ohne Marketing-Overkill).
-
----
-
 # CoreStereo
 
 **High-performance host-side stereo processing for deterministic, geometry-first 3D reconstruction.**
