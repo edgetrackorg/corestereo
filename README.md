@@ -32,7 +32,7 @@ CoreStereo operates between **EdgeTrack (capture)** and **CoreFusion (multi-rig 
 
 ```mermaid
 flowchart LR
-    E[EdgeTrack\nCapture] -->|Ethernet RAW Stream| S[CoreStereo\nDisparity + 3D]
+    E[EdgeTrack\nCapture] -->|Ethernet RAW Stream| S[CoreStereo\nHost]
     S --> F[CoreFusion<br/>Workstation]
 ```
 
@@ -46,26 +46,26 @@ Additional architectural variants can also be considered, for example:
 
 ```mermaid
 flowchart LR
-    E1[EdgeTrack 1\nCapture] -->|Ethernet RAW Stream| C1[CoreStereo<br/>Shared Host 1]
+    E1[EdgeTrack 1\nCapture] -->|Ethernet RAW Stream| C1[CoreStereo<br/>Host 1]
     E2[EdgeTrack 2\nCapture] -->|Ethernet RAW Stream| C1
 
-    E3[EdgeTrack 3\nCapture] -->|Ethernet RAW Stream| C2[CoreStereo<br/>Shared Host 2]
+    E3[EdgeTrack 3\nCapture] -->|Ethernet RAW Stream| C2[CoreStereo<br/>Host 2]
     E4[EdgeTrack 4\nCapture] -->|Ethernet RAW Stream| C2   
 
     C1 --> F[CoreFusion<br/>Workstation]
     C2 --> F
 ```
-However, this is not the preferred setup.
+However, this is not the preferred setup, although it can still be acceptable for development and experimentation. A dedicated quad-stereo-camera configuration may be developed later as a more advanced future architecture.
 
-The recommended architecture is this:
+The recommended architecture is as follows:
 
 ```mermaid
 flowchart LR
-    E1[EdgeTrack 1\nCapture] -->|Ethernet RAW Stream| C1[CoreStereo<br/>Shared Host 1]
-    E2[EdgeTrack 2\nCapture] -->|Ethernet RAW Stream| C2[CoreStereo<br/>Shared Host 2]
+    E1[EdgeTrack 1\nCapture] -->|Ethernet RAW Stream| C1[CoreStereo<br/>Host 1]
+    E2[EdgeTrack 2\nCapture] -->|Ethernet RAW Stream| C2[CoreStereo<br/>Host 2]
 
-    E3[EdgeTrack 3\nCapture] -->|Ethernet RAW Stream| C3[CoreStereo<br/>Shared Host 3]
-    E4[EdgeTrack 4\nCapture] -->|Ethernet RAW Stream| C4[CoreStereo<br/>Shared Host 4]   
+    E3[EdgeTrack 3\nCapture] -->|Ethernet RAW Stream| C3[CoreStereo<br/>Host 3]
+    E4[EdgeTrack 4\nCapture] -->|Ethernet RAW Stream| C4[CoreStereo<br/>Host 4]   
 
     C1 --> F[CoreFusion<br/>Workstation]
     C2 --> F
